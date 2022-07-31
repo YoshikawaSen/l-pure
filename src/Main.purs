@@ -13,6 +13,7 @@ circleArea :: Number -> Number
 circleArea r = r * r * pi
 
 main :: Effect Unit
-main = do
-  logShow $ circleArea 2.0
-  logShow $ diagonal 3.0 4.0
+main =
+  HA.runHalogenAff do
+    body <- HA.awaitBody
+    runUI Breakout.component unit body
