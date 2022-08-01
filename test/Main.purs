@@ -1,11 +1,13 @@
-module Test.Main where
+module Main where
 
 import Prelude
-
 import Effect (Effect)
-import Effect.Class.Console (log)
+import Breakout as Breakout
+import Halogen.Aff as HA
+import Halogen.VDom.Driver (runUI)
 
 main :: Effect Unit
-main = do
-  log "🍝"
-  log "You should add some tests."
+main =
+  HA.runHalogenAff do
+    body <- HA.awaitBody
+    runUI Breakout.component unit body
