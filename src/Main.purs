@@ -1,5 +1,9 @@
 module Main where
 
+import Effect (Effect)
+import Effect.Console (logShow)
+
+{-
 import Prelude
 import Effect (Effect)
 import Breakout as Breakout
@@ -11,3 +15,8 @@ main =
   HA.runHalogenAff do
     body <- HA.awaitBody
     runUI Breakout.component unit body
+-}
+
+main :: Effect Unit 
+main = do 
+  logShow "aaa"
